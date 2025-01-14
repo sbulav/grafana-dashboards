@@ -1265,12 +1265,12 @@
     ]
   },
   "time": {
-    "from": "now-30d",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "ZFS Copy1",
+  "title": "ZFS stats",
   "uid": "ee9yuut1noflsc",
   "version": 1,
   "weekStart": ""
