@@ -196,7 +196,10 @@
           "text": "authelia",
           "value": "authelia"
         },
-        "datasource": "loki",
+        "datasource": {
+          "type": "loki",
+          "uid": "loki"
+        },
         "definition": "label_values(job)",
         "includeAll": false,
         "label": "App",
