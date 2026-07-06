@@ -52,7 +52,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "description": "",
       "fieldConfig": {
@@ -101,7 +101,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": "sum(count_over_time({job=\"traefik-access-log\"} |= \"RequestProtocol\" [$__interval]))",
           "legendFormat": "",
@@ -116,7 +116,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "description": "",
       "fieldConfig": {
@@ -165,7 +165,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": "sum by (OriginStatus) (count_over_time({job=\"traefik-access-log\"}|= \"RequestProtocol\" | json |  __error__=\"\" [$__interval]))",
           "legendFormat": "HTTP Status: {{OriginStatus}}",
@@ -180,7 +180,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "description": "",
       "fieldConfig": {
@@ -237,7 +237,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": " sum(rate({job=\"traefik-access-log\"} |~ \"RequestProtocol\" | json | OriginStatus >= 400 |__error__=\"\"[$__interval])) / (sum(rate({job=\"traefik-access-log\"} |~ \"RequestProtocol\" | json | __error__=\"\"[$__interval])) / 100)",
           "legendFormat": "",
@@ -252,7 +252,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "description": "",
       "fieldConfig": {
@@ -393,7 +393,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": " sum by (OriginStatus,ServiceName) (count_over_time({job=\"traefik-access-log\"} |~ \"RequestProtocol\" | json | OriginStatus >= 400 |__error__=\"\"[$__interval]))",
           "legendFormat": " {{ServiceName}} / {{OriginStatus}} ",
@@ -408,7 +408,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "description": "",
       "fieldConfig": {
@@ -464,7 +464,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": "count(sum by (ClientHost) (count_over_time({job=\"traefik-access-log\"}|= \"RequestProtocol\" | json |  __error__=\"\" [$__interval])))",
           "legendFormat": "",
@@ -479,7 +479,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "description": "",
       "fieldConfig": {
@@ -536,7 +536,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": "sum_over_time({job=\"traefik-access-log\"}|= \"RequestProtocol\" | json | OriginStatus=200 | unwrap DownstreamContentSize |  __error__=\"\" [$__interval])",
           "legendFormat": "Bytes sent",
@@ -571,7 +571,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "description": "",
       "fieldConfig": {
@@ -630,7 +630,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": "sum by (RouterName) (count_over_time({job=\"traefik-access-log\"}|= \"RequestProtocol\" | json |  __error__=\"\" [$__interval]))",
           "legendFormat": "{{RouterName}}",
@@ -645,7 +645,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "fieldConfig": {
         "defaults": {},
@@ -673,7 +673,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": "{job=\"traefik-access-log\"} |= \"RequestProtocol\"| json  | line_format \"Status:{{.OriginStatus}} Client From {{.ClientAddr}} {{.RequestMethod}} {{.RequestAddr}}{{.RequestPath}} Route To {{.ServiceAddr}}\"",
           "legendFormat": "",
@@ -688,7 +688,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "description": "",
       "fieldConfig": {
@@ -828,7 +828,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": "quantile_over_time(0.95,{job=\"traefik-access-log\"} |= \"RequestProtocol\"| json | unwrap Duration |  __error__=\"\"  [$__interval]) by (ServiceName)",
           "hide": false,
@@ -843,7 +843,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "description": "",
       "fieldConfig": {
@@ -981,7 +981,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": "max by (ServiceName) (max_over_time({job=\"traefik-access-log\"} |= \"RequestProtocol\" |json | unwrap Duration |  __error__=\"\"  [$__interval]))",
           "hide": false,
@@ -996,7 +996,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "loki"
       },
       "description": "",
       "fieldConfig": {
@@ -1134,7 +1134,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "loki"
           },
           "expr": "sum by (ServiceName) (sum_over_time({job=\"traefik-access-log\"} |= \"RequestProtocol\" |json | unwrap RequestContentSize |  __error__=\"\"  [$__interval]))",
           "hide": false,
